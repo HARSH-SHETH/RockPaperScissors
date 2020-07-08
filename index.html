@@ -4,23 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link href="index.css" rel="stylesheet" type="text/css">
 
-  Score
-  Rules
-
-  You Picked
-  The House Picked
-
-  You Win
-  You Lose
-
-  Play Again
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 </head>
 <body>
+    <section>
+        <header>
+            <div>
+                <p>ROCK</p>
+                <p>PAPER</p>
+                <p>SCISSORS</p>
+            </div>
+            <div id="score-board">
+                <p>SCORE</p>
+                <span id="score">00</span>
+            </div>
+        </header>
+    </section>
 
+    <section id="main-game">
+        <img id="triangle" src="./images/bg-triangle.svg">
+        <div class="symbol" id="rock" data-role="rock">
+            <span><img src="./images/icon-rock.svg"></span>
+        </div>
+        <div class="symbol" id="paper" data-role="paper">
+            <span><img src="./images/icon-paper.svg"></span>
+        </div>
+        <div class="symbol" id="scissors" data-role="scissors">
+            <span><img src="./images/icon-scissors.svg"></span>
+        </div>
+    </section>
 
-  
+    <div id="rules">
+        <span>RULES</span>
+    </div>
+    <div id="rules-card-bg">
+        <div id="rules-card">
+            <div>
+                <h1>RULES</h1>
+                <img src="./images/icon-close.svg">
+            </div>
+            <img src="./images/image-rules.svg">
+        </div>
+    </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
