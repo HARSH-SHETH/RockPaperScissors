@@ -50,7 +50,7 @@ function displayChoices(userPickSymbol, housePickSymbol){
       newSection.innerHTML = "<div><h1>You Picked</h1>" + userPickSymbol.outerHTML + "</div>" 
         + "<div><h1>The House Picked</h1>" +housePickSymbol.outerHTML + "</div>";
       document.body.insertAdjacentElement("beforeEnd", document.querySelector("#rules"));
-      decideWinner(user, house);
+      setTimeout(function(){decideWinner(user, house);}, 500);
 }
 // DECIDE WHO IS THE WINNER ACCORDING TO GAME-RULES
 function decideWinner(user, house){
