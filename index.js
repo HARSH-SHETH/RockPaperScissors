@@ -3,7 +3,7 @@ var rulesCard = document.querySelector("#rules-card-bg");
 var rockPaperScissors = ["rock", "paper", "scissors"];
 var userPick = document.querySelectorAll("#main-game div");
 var colors = ["hsl(349, 71%, 52%)", "hsl(230, 89%, 62%)", "hsl(39, 89%, 49%)"];
-var score = 0;
+var score = Number(localStorage.getItem("score"));
 
 initiate();
 
@@ -64,15 +64,20 @@ function decideWinner(user, house){
   else if(userIndex - houseIndex == 1 || userIndex - houseIndex == -2){
     textMsg = "YOU WIN";
     score++;
-    if(score < 10)
-      document.querySelector("#score").textContent = "0" + score;
-    else
-      document.querySelector("#score").textContent = score;
   }
   else{
     textMsg = "YOU LOSE";
     winner = house;
+    score--;
   }
+  localStorage.setItem("score", score);
+  if(score < 10){
+    if(score < 0)
+      document.querySelector("#score").textContent = "-0" + -score;
+    else
+      document.querySelector("#score").textContent = "0" + score;
+  } else
+    document.querySelector("#score").textContent = score;
   var newSection = document.querySelector(".newSection");
   newSection.style.width = "70%";
   var firstDiv = document.querySelectorAll(".newSection div")[0];
@@ -88,4 +93,15 @@ function playAgain(){
     document.querySelector(".newSection").remove();
     document.querySelector("#main-game").style.display = "block";
   });
+}
+window.onload = function(){
+  if(score < 10){
+    if(score < 0){
+      document.querySelector("#score").textContent = "-0" + -score;
+    }
+    else
+      document.querySelector("#score").textContent = "0" + score;
+  }
+  else
+    document.querySelector("#score").textContent = score;
 }
